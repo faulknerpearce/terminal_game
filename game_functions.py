@@ -1,32 +1,50 @@
 from game_classes import Character, Weapon
-import random
+import random, sys, time
+
+# This function will delay text that is outputed to the terminal. 
+def delayed_print(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    # Add a newline character at the end of the text
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+
+# This function will delay test that is output to the terminal and retrun the inputed value. 
+def delayed_input(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    return input()
 
 # This fucntion creates an instance of the character and sword. 
 def create_player():
     sword = Weapon(10, 20, 1, 0)
-    name = input("\nPlease enter you characters name: ")
+    name = delayed_input("\nPlease enter you characters name: ")
     created_player = Character(name, 50, "Human", 1, sword)
     return created_player
 
 # This function will create an instance of a goblin that is the same level as the player. 
 def create_goblin():
     sword = Weapon(10, 20, 1, 0)
-    created_goblin = Character("Goblin", 50, "Goblin", 1, sword)
+    created_goblin = Character("Goblin", 50, "Goblin", 1, sword) 
     return created_goblin
 
 # This function is called if block is False and will output different statements for the player or the opponent. 
 def output_if_not_block(_attacker, _opponent, _tactic, _damage):
     if _attacker.race == "Human":
-        print(f"\nYour {_tactic} Attack was successful, you have reduced the {_opponent.name}'s Health by {_damage} points.") 
+        delayed_print(f"\nYour {_tactic} Attack was successful, you have reduced the {_opponent.name}'s Health by {_damage} points.") 
     else:
-        print(f"\nYour block was unsuccessful. The {_attacker.name} reduced your Health by {_damage} points.")
+        delayed_print(f"\nYour block was unsuccessful. The {_attacker.name} reduced your Health by {_damage} points.")
 
 # This function is called if block is True and will output different statements for the player or the opponent.
 def output_if_block(_attacker, _opponent, _tactic):
     if _attacker.race == "Human":
-        print(f"\nThe {_opponent.name} blocked your {_tactic} Attack.")
+        delayed_print(f"\nThe {_opponent.name} blocked your {_tactic} Attack.")
     elif _opponent.race == "Human":
-        print(f"\nYou successfully blocked the {_attacker.name}'s {_tactic} Attack.")
+        delayed_print(f"\nYou successfully blocked the {_attacker.name}'s {_tactic} Attack.")
 
 # This fucntion will use a int as a key for a dictionary and retrun the associated word. 
 def convert_int_to_word(player_choice):
@@ -50,10 +68,10 @@ def parry(_defender, _opponent, defender_tactic):
         damage_to_enemy = _defender.parry(_opponent)
         # Add weapon xp for successful hit 
         _defender.weapon.add_xp(damage_to_enemy /2)
-        print(f"\nYour {defender_tactic} was succsessful, and you delt {damage_to_enemy} points of damage to the {_opponent.name}")
+        delayed_print(f"\nYour {defender_tactic} was succsessful, and you delt {damage_to_enemy} points of damage to the {_opponent.name}")
     else:
         damage_to_player = _opponent.parry(_defender)
-        print(f"\nYour {defender_tactic} was unsuccessful and the {_opponent.name} reduced your health by {damage_to_player} points.")
+        delayed_print(f"\nYour {defender_tactic} was unsuccessful and the {_opponent.name} reduced your health by {damage_to_player} points.")
 
 # This fucntion will return the NPC's randomly selected attack choice, in the form of a string "Light" or "Heavy" attack.
 def enemy_random_attack():
@@ -61,13 +79,31 @@ def enemy_random_attack():
     word = convert_int_to_word(num)
     return word
 
+# This function will delay text that is outputed to the terminal. 
+def delayed_print(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    # Add a newline character at the end of the text
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+
+# This function will delay test that is output to the terminal and retrun the inputed value. 
+def delayed_input(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    return input()
+
 
 
 
 
     
 
-
+ 
 
    
 
