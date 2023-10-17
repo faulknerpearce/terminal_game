@@ -26,12 +26,12 @@ class Weapon:
 # Class for creating the player and opponents.
 class Character:
     # Create attributes for the character. 
-    def __init__(self, _name, _health, _race, _level, _weapon):
+    def __init__(self, _name, _health, _race, _weapon, _level=1):
         self.name = _name 
         self.health = _health
         self.race = _race
-        self.level = _level
         self.weapon = _weapon
+        self.level = _level
     
     # This will print information about the Player if they are a human, otherwise it will print the information about the Enemy NPC.
     def __repr__(self):

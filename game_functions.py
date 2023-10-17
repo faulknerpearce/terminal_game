@@ -1,35 +1,17 @@
 from game_classes import Character, Weapon
 import random, sys, time
 
-# This function will delay text that is outputed to the terminal. 
-def delayed_print(text):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    # Add a newline character at the end of the text
-    sys.stdout.write('\n')
-    sys.stdout.flush()
-
-# This function will delay test that is output to the terminal and retrun the inputed value. 
-def delayed_input(text):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    return input()
-
 # This fucntion creates an instance of the character and sword. 
 def create_player():
     sword = Weapon(10, 20, 1, 0)
     name = delayed_input("\nPlease enter you characters name: ")
-    created_player = Character(name, 50, "Human", 1, sword)
+    created_player = Character(name, 50, "Human", sword)
     return created_player
 
 # This function will create an instance of a goblin that is the same level as the player. 
 def create_goblin():
     sword = Weapon(10, 20, 1, 0)
-    created_goblin = Character("Goblin", 50, "Goblin", 1, sword) 
+    created_goblin = Character("Goblin", 50, "Goblin", sword) 
     return created_goblin
 
 # This function is called if block is False and will output different statements for the player or the opponent. 
@@ -80,23 +62,22 @@ def enemy_random_attack():
     return word
 
 # This function will delay text that is outputed to the terminal. 
-def delayed_print(text):
+def delayed_print(text, delay=0.04):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.04)
+        time.sleep(delay)
     # Add a newline character at the end of the text
     sys.stdout.write('\n')
     sys.stdout.flush()
 
 # This function will delay test that is output to the terminal and retrun the inputed value. 
-def delayed_input(text):
+def delayed_input(text, delay=0.04):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.04)
+        time.sleep(delay)
     return input()
-
 
 
 
